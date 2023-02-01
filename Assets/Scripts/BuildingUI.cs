@@ -13,21 +13,27 @@ public class BuildingUI : MonoBehaviour
 
     private ResourceManager res;
 
-    private void Start()
+    private void Awake()
     {
         res = GameObject.Find("ResourceManagement").GetComponent<ResourceManager>();
     }
 
     private void OnMouseDown()
     {
+        if (!res.isClickable)
+        {
+            return;
+        }
         selected.SetActive(true);
         UI.SetActive(true);
+        res.isClickable = false;    
     }
 
     public void CloseUI()
     {
         selected.SetActive(false);
         UI.SetActive(false);
+        res.isClickable = true;
     }
 
     public void ShowRecruitWindow()
@@ -40,11 +46,13 @@ public class BuildingUI : MonoBehaviour
     public void CloseRecruitWindow()
     {
         RecruitUI.SetActive(false);
+        res.isClickable = true;
     }
 
     public void SellBuilding()
     {
         res.AddResource(sellPrice);
+        res.isClickable = true;
         Destroy(this.gameObject);
     }
 

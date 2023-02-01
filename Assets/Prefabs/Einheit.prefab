@@ -134,4 +134,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8937bc7d4d7c2ad428beb68be22537c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  corpse: {fileID: 2501838784386686414, guid: c251f35aa8ffed5478c92bbd07847a3a, type: 3}
   radius: 25

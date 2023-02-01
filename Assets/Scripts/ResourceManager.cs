@@ -12,6 +12,7 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] GameObject spielBuildUI;
     [SerializeField] GameObject resourceUI;
     [SerializeField] GameObject optionUI;
+    [SerializeField] GameObject optionUIIngame;
     [SerializeField] GameObject mapUI;
     [SerializeField] GameObject achievementUI;
     [SerializeField] GameObject buildPattern;
@@ -20,6 +21,7 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI goldText;
     //Value
     public int Gold { get; private set; } = 50;
+    public bool isClickable { get; set; }
 
     private void Start()
     {
@@ -33,6 +35,7 @@ public class ResourceManager : MonoBehaviour
         mainMenuUI.SetActive(true);
         resourceUI.SetActive(false);
         spielUI.SetActive(false);
+        isClickable = false;
     }
 
     public void ShowOptionWindow()
@@ -40,9 +43,22 @@ public class ResourceManager : MonoBehaviour
         optionUI.SetActive(true);
     }
 
+
     public void CloseOptionWindow()
     {
         optionUI.SetActive(false);
+    }
+
+    public void ShowOptionWindowIngame()
+    {
+        optionUIIngame.SetActive(true);
+        isClickable = false;
+    }
+
+    public void CloseOptionWindowIngame()
+    {
+        optionUIIngame.SetActive(false);
+        isClickable = true;
     }
 
     public void ShowAchievementWindow()
@@ -62,16 +78,19 @@ public class ResourceManager : MonoBehaviour
         resourceUI.SetActive(true);
         spielUI.SetActive(true);
         mainMenuUI.SetActive(false);
+        isClickable = true;
     }
 
     public void ShowMapUI()
     {
         mapUI.SetActive(true);
+        isClickable = false;
     }
 
     public void CloseMapUI()
     {
         mapUI.SetActive(false);
+        isClickable = true;
     }
 
     public void ActivateBuildPattern()
@@ -79,6 +98,7 @@ public class ResourceManager : MonoBehaviour
         buildPattern.SetActive(true);
         spielUI.SetActive(false);
         spielBuildUI.SetActive(true);
+        isClickable = false;
     }
 
     public void DeactivateBuildPattern()
@@ -86,6 +106,7 @@ public class ResourceManager : MonoBehaviour
         buildPattern.SetActive(false);
         spielBuildUI.SetActive(false);
         spielUI.SetActive(true);
+        isClickable = true;
     }
 
     public void AddResource(int value)

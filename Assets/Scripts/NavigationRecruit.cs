@@ -6,12 +6,19 @@ using UnityEngine.AI;
 public class NavigationRecruit : MonoBehaviour
 {
     private NavMeshAgent agent;
+    [SerializeField] GameObject corpse;
 
     public float radius;
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+    }
+
+    private void OnMouseDown()
+    {
+        Instantiate(corpse, transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
     }
 
     private void Update()
