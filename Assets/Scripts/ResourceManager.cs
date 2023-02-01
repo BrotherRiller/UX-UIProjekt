@@ -98,7 +98,6 @@ public class ResourceManager : MonoBehaviour
         buildPattern.SetActive(true);
         spielUI.SetActive(false);
         spielBuildUI.SetActive(true);
-        isClickable = false;
     }
 
     public void DeactivateBuildPattern()
@@ -106,7 +105,6 @@ public class ResourceManager : MonoBehaviour
         buildPattern.SetActive(false);
         spielBuildUI.SetActive(false);
         spielUI.SetActive(true);
-        isClickable = true;
     }
 
     public void AddResource(int value)

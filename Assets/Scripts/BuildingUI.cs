@@ -26,6 +26,8 @@ public class BuildingUI : MonoBehaviour
         }
         selected.SetActive(true);
         UI.SetActive(true);
+        res.DeactivateBuildPattern();
+        res.ShowGameUI();
         res.isClickable = false;    
     }
 
